@@ -24,7 +24,12 @@ from tensorflow.python.ops import gen_user_ops as _gen_user_ops
 # go/tf-wildcard-import
 from tensorflow.python.ops.gen_user_ops import *  # pylint: disable=wildcard-import
 
+from tensorflow.python.framework import ops
 
 def my_fact():
   """Example of overriding the generated code for an Op."""
   return _gen_user_ops._fact()  # pylint: disable=protected-access
+
+ops.NotDifferentiable("SortReindex")
+ops.NotDifferentiable("ScatterOrder")
+ops.NotDifferentiable("NextSelectedIndices")
